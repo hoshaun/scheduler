@@ -23,6 +23,10 @@
       background-color: darken($white, 5%);
       color: $dark-background;
 
+      &--full {
+        @extend .day-list__item--selected;
+      }
+
       &:hover {
         background-color: darken($white, 5%);
       }
