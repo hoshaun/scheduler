@@ -19,6 +19,7 @@
     }
 
     &--selected {
+      @extend .day-list__item;
       background-color: darken($white, 5%);
       color: $dark-background;
 
@@ -28,13 +29,8 @@
     }
 
     &--full {
+      @extend .day-list__item;
       opacity: $inactive-opacity;
-
-      &:hover {
-        background-color: #ee5253;
-        cursor: pointer;
-        color: $dark-background;
-      }
     }
   }
 }
