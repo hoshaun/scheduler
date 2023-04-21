@@ -11,3 +11,19 @@ export function getAppointmentsForDay(state, day) {
   
   return appointments;
 };
+
+export function getInterview(state, interview) {
+  if (!(interview && interview.interviewer)) {
+    return null;
+  }
+
+  const result = { "student": interview.student };
+
+  for (const key in state.interviewers) {
+    if (state.interviewers[key].id === interview.interviewer) {
+      result['interviewer'] = state.interviewers[key];
+    }
+  }
+
+  return result;
+};
