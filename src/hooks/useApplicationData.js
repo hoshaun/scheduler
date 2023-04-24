@@ -18,15 +18,22 @@ export default function useApplicationData() {
       ...state.appointments,
       [id]: appointment
     };
+    const day = state.days.find(day => day.name === state.day);
     
     return axios.put(`/api/appointments/${id}`, { interview: interview })
       .then(() => {
         setState({ ...state, appointments });
+        day.spots--;
       });
   };
 
   const cancelInterview = function(id) {
-    return axios.delete(`/api/appointments/${id}`);
+    const day = state.days.find(day => day.name === state.day);
+
+    return axios.delete(`/api/appointments/${id}`)
+      .then(() => {
+        day.spots++;
+      });
   };
   
   const setDay = day => setState({ ...state, day });
@@ -44,7 +51,7 @@ export default function useApplicationData() {
         interviewers: all[2].data
       }));
     });  
-  }, []);
+  }, [state]);
 
   return { state, setDay, bookInterview, cancelInterview };
 };
