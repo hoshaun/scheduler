@@ -80,10 +80,14 @@ export default {
       });
     }
   }),
-  put: jest.fn(() => {
+  put: jest.fn(url => {
+    const id = Number(url.split('/').slice(-1)[0]);
+    const day = fixtures.days.find(day => day.id === id);
+    day.spots--;
+
     return Promise.resolve({
       status: 204,
       statusText: "No Content"
-    })
+    });
   })
 }
