@@ -1,3 +1,5 @@
+import { getAppointmentsForDay } from "helpers/selectors";
+
 const fixtures = {
   days: [
     {
@@ -80,11 +82,13 @@ export default {
       });
     }
   }),
-  put: jest.fn(url => {
-    const id = Number(url.split('/').slice(-1)[0]);
-    const day = fixtures.days.find(day => day.id === id);
-    day.spots--;
-
+  put: jest.fn(() => {
+    return Promise.resolve({
+      status: 204,
+      statusText: "No Content"
+    });
+  }),
+  delete: jest.fn(() => {
     return Promise.resolve({
       status: 204,
       statusText: "No Content"
