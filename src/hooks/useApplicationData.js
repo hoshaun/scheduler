@@ -51,7 +51,7 @@ export default function useApplicationData() {
         interviewers: all[2].data
       }));
     });  
-  }, [state]);
+  }, [state.days]);
 
   return { state, setDay, bookInterview, cancelInterview };
 };
