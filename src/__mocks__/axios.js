@@ -1,5 +1,3 @@
-import { getAppointmentsForDay } from "helpers/selectors";
-
 const fixtures = {
   days: [
     {
