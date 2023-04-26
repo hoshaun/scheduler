@@ -12,8 +12,8 @@ import {
   queryByText,
   queryByAltText
 } from "@testing-library/react";
-import axios from "axios";
 
+import axios from "axios";
 import Application from "components/Application";
 
 afterEach(cleanup);

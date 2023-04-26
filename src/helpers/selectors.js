@@ -1,3 +1,4 @@
+// returns array of appointment objects for a given day
 export function getAppointmentsForDay(state, day) {
   const filteredDay = state.days.filter(data => data.name === day)[0];
   const filteredAppointments = filteredDay ? filteredDay.appointments : [];
@@ -14,6 +15,7 @@ export function getAppointmentsForDay(state, day) {
   return appointments;
 };
 
+// returns array of interviewer objects for a given day
 export function getInterviewersForDay(state, day) {
   const filteredDay = state.days.filter(data => data.name === day)[0];
   const filteredInterviewers = filteredDay ? filteredDay.interviewers : [];
@@ -30,6 +32,7 @@ export function getInterviewersForDay(state, day) {
   return interviewers;
 };
 
+// returns an object containing student name and interviewer object for a given interview
 export function getInterview(state, interview) {
   if (!(interview && interview.interviewer)) {
     return null;

@@ -22,6 +22,7 @@ export default function DayListItem(props) {
   );
 }
 
+// helper function to format and display spot count
 const formatSpots = function(spots) {
   return `${spots === 0 ? 'no' : spots} ${spots === 1 ? 'spot' : 'spots'}`;
 };

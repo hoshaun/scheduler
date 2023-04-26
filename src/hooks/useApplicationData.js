@@ -9,6 +9,7 @@ export default function useApplicationData() {
     interviewers: {}
   });
   
+  // PUT request to save a new interview and update state
   const bookInterview = function(id, interview) {
     const appointment = {
       ...state.appointments[id],
@@ -27,6 +28,7 @@ export default function useApplicationData() {
       });
   };
 
+  // DELETE request to delete an existing interview and update state
   const cancelInterview = function(id) {
     const appointment = {
       ...state.appointments[id],
@@ -45,8 +47,10 @@ export default function useApplicationData() {
       });
   };
   
+  // setDay state function
   const setDay = day => setState({ ...state, day });
 
+  // returns a deep copy of days state object with updated spot count
   const updateSpots = function(state, appointments) {
     const days = JSON.parse(JSON.stringify(state.days));
     const day = days.find(day => day.name === state.day);
@@ -64,6 +68,7 @@ export default function useApplicationData() {
     return days;
   };
 
+  // GET requests to get data and rerender components
   useEffect(() => {
     Promise.all([
       axios.get('/api/days'),

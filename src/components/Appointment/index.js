@@ -22,6 +22,7 @@ export default function Appointment(props) {
   const ERROR_DELETE = "ERROR_DELETE";
   const { mode, transition, back } = useVisualMode(props.interview ? SHOW : EMPTY);
   
+  // save button function
   const save = function(name, interviewer) {
     const interview = {
       student: name,
@@ -39,6 +40,7 @@ export default function Appointment(props) {
       });
   };
 
+  // delete button function (when confirming delete)
   const destroy = function() {
     transition(DELETING, true);
     props.cancelInterview(props.id)
